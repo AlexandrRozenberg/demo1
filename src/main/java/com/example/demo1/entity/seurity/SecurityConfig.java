@@ -1,6 +1,6 @@
 package com.example.demo1.entity.seurity;
 
-import com.example.demo1.entity.services.CustomUserDetailsService;
+import  com.example.demo1.entity.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,8 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(SecurityConstants.SIGN_UP_URLS).permitAll()
                 .anyRequest().authenticated();
 
+
+
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
