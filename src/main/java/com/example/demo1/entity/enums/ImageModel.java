@@ -1,8 +1,9 @@
 package com.example.demo1.entity.enums;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Data
 @Entity

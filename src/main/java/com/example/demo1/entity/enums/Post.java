@@ -1,8 +1,9 @@
 package com.example.demo1.entity.enums;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
