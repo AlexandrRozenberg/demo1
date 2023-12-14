@@ -1,4 +1,5 @@
 package com.example.demo1.entity.services;
+import com.example.demo1.entity.dto.UserDTO;
 import com.example.demo1.entity.enums.ERole;
 import com.example.demo1.entity.enums.User;
 import com.example.demo1.entity.exceptions.UserExistException;
@@ -44,27 +45,27 @@ public class UserService {
         }
     }
 
-//    public User updateUser(UserDTO userDTO, Principal principal) {
-//        User user = getUserByPrincipal(principal);
-//        user.setName(userDTO.getFirstname());
-//        user.setLastname(userDTO.getLastname());
-//        user.setBio(userDTO.getBio());
-//
-//        return userRepository.save(user);
-//    }
-//
-//    public User getCurrentUser(Principal principal) {
-//        return getUserByPrincipal(principal);
-//    }
-//
-//    private User getUserByPrincipal(Principal principal) {
-//        String username = principal.getName();
-//        return userRepository.findUserByUsername(username)
-//                .orElseThrow(() -> new UsernameNotFoundException("Username not found with username " + username));
-//
-//    }
-//
-//    public User getUserById(Long id) {
-//        return userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-//    }
+    public User updateUser(UserDTO userDTO, Principal principal) {
+        User user = getUserByPrincipal(principal);
+        user.setName(userDTO.getFirstname());
+        user.setLastname(userDTO.getLastname());
+        user.setBio(userDTO.getBio());
+
+        return userRepository.save(user);
+    }
+
+    public User getCurrentUser(Principal principal) {
+        return getUserByPrincipal(principal);
+    }
+
+    private User getUserByPrincipal(Principal principal) {
+        String username = principal.getName();
+        return userRepository.findUserByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Username not found with username " + username));
+
+    }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    }
 }
