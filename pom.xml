@@ -12,9 +12,9 @@
 	<artifactId>demo1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo1</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Software to Share Images</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 
 	<dependencies>
@@ -40,9 +40,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-
-
-
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -67,16 +64,12 @@
 		</dependency>
 	</dependencies>
 
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<image>
-						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
-					</image>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -87,5 +80,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

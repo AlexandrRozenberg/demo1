@@ -9,9 +9,10 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
-@Data
 @Entity
+@Data
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -43,8 +44,7 @@ public class User implements UserDetails {
     @Transient
     private Collection<? extends GrantedAuthority> authorities;
 
-    public User(){
-
+    public User() {
     }
 
     public User(Long id,
@@ -67,8 +67,11 @@ public class User implements UserDetails {
     /**
      * SECURITY
      */
+
+
+
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 
@@ -92,3 +95,4 @@ public class User implements UserDetails {
         return true;
     }
 }
+

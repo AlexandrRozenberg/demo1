@@ -10,9 +10,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Data
 @Entity
+@Data
 public class Post {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +24,7 @@ public class Post {
 
     @Column
     @ElementCollection(targetClass = String.class)
-    private Set<String> likedUsers =  new HashSet<>();
+    private Set<String> likedUsers = new HashSet<>();
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "post", orphanRemoval = true)
@@ -31,8 +32,12 @@ public class Post {
     @Column(updatable = false)
     private LocalDateTime createdDate;
 
+    public Post() {
+    }
+
     @PrePersist
-    protected void onCreate(){
+    protected void onCreate()
+    {
         this.createdDate = LocalDateTime.now();
     }
 }

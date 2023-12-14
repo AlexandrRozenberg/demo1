@@ -27,17 +27,6 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
-
-
-    private String getJWTFromRequest(HttpServletRequest request) {
-        String bearToken = request.getHeader(SecurityConstants.HEADER_STRING);
-        if (StringUtils.hasText(bearToken) && bearToken.startsWith(SecurityConstants.TOKEN_PREFIX)) {
-            return bearToken.split(" ")[1];
-        }
-        return null;
-    }
-
-
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         try {
@@ -59,5 +48,14 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
         filterChain.doFilter(httpServletRequest, httpServletResponse);
     }
-}
 
+    private String getJWTFromRequest(HttpServletRequest request) {
+        String bearToken = request.getHeader(SecurityConstants.HEADER_STRING);
+        if (StringUtils.hasText(bearToken) && bearToken.startsWith(SecurityConstants.TOKEN_PREFIX)) {
+            return bearToken.split(" ")[1];
+        }
+        return null;
+    }
+
+
+}

@@ -1,12 +1,12 @@
 package com.example.demo1.entity.enums;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 
-@Data
 @Entity
+@Data
 public class ImageModel {
 
     @Id
